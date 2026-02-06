@@ -65,7 +65,7 @@ resource "cloudflare_record" "records_value" {
   depends_on = [
     cloudflare_zone.zone,
   ]
-  value = each.value.dns_value == "SRV" ? null : each.value.dns_value
+  content = each.value.dns_value == "SRV" ? null : each.value.dns_value
 }
 
 resource "cloudflare_record" "records_data" {
